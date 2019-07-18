@@ -134,7 +134,7 @@ class ParDoTranslatorBatch<InputT, OutputT>
     if (outputs.entrySet().size() > 1) {
       allOutputs.persist();
     }
-
+    // TODO: do not call the filter if there is only one output tag
     for (Map.Entry<TupleTag<?>, PValue> output : outputs.entrySet()) {
       pruneOutputFilteredByTag(context, allOutputs, output);
     }
